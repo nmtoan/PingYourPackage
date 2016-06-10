@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.Domain", "PingYourPackage.Domain\PingYourPackage.Domain.csproj", "{B7A4BF20-39A7-4EDB-B404-95EAC0AB8BB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API", "PingYourPackage.API\PingYourPackage.API.csproj", "{34576490-2E98-4349-9F9D-5EF6CBB4A12A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API.Test", "PingYourPackage.API.Test\PingYourPackage.API.Test.csproj", "{7ECBF614-7D57-4729-920D-CDC5E50F5EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API.WebHost", "PingYourPackage.API.WebHost\PingYourPackage.API.WebHost.csproj", "{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A2BCBBF6-3255-4F7A-885C-7345AB76B767}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7A4BF20-39A7-4EDB-B404-95EAC0AB8BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A4BF20-39A7-4EDB-B404-95EAC0AB8BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A4BF20-39A7-4EDB-B404-95EAC0AB8BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A4BF20-39A7-4EDB-B404-95EAC0AB8BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34576490-2E98-4349-9F9D-5EF6CBB4A12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34576490-2E98-4349-9F9D-5EF6CBB4A12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34576490-2E98-4349-9F9D-5EF6CBB4A12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34576490-2E98-4349-9F9D-5EF6CBB4A12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECBF614-7D57-4729-920D-CDC5E50F5EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECBF614-7D57-4729-920D-CDC5E50F5EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECBF614-7D57-4729-920D-CDC5E50F5EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECBF614-7D57-4729-920D-CDC5E50F5EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
