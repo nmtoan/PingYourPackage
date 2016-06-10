@@ -1,0 +1,4 @@
+language: csharp
+solution: PingYourPackage.sln
+install:
+- nuget restore PingYourPackage.sln
