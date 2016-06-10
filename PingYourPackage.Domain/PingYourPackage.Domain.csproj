@@ -78,6 +78,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CryptoService.cs" />
+    <Compile Include="Services\ICryptoService.cs" />
+    <Compile Include="Services\IMembershipService.cs" />
+    <Compile Include="Services\MembershipService.cs" />
+    <Compile Include="Services\OperationResult.cs" />
+    <Compile Include="Services\UserWithRoles.cs" />
+    <Compile Include="Services\ValidUserContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

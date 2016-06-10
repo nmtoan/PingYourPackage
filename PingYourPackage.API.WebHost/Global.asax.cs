@@ -1,11 +1,6 @@
 ﻿using PingYourPackage.API.Config;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace PingYourPackage.API.WebHost
 {
@@ -16,10 +11,9 @@ namespace PingYourPackage.API.WebHost
         {
             var config = GlobalConfiguration.Configuration;
 
-            // add RouteConfig, WebAPIConfig
-            //RouteConfig.
+            //RouteConfig.RegisterRoutes(config);
             //WebAPIConfig.
-            //AutofacWebAPI.Initialize(config);
+            AutofacWebAPI.Initialize(config);
             EFConfig.Initialize();
         }
 
