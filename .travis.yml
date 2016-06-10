@@ -2,3 +2,7 @@ language: csharp
 solution: PingYourPackage.sln
 install:
 - nuget restore PingYourPackage.sln
+- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+- xbuild /p:Configuration=Release PingYourPackage.sln
+- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./PingYourPackage.API.Test/bin/Release/PingYourPackage.API.Test.dll
