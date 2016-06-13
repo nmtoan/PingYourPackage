@@ -86,5 +86,12 @@ namespace PingYourPackage.Domain.Entities
         {
             _entitiesContext.SaveChanges();
         }
+
+        public void DeleteGraph(T entity)
+        {
+            DbSet<T> dbSet = _entitiesContext.Set<T>();
+            dbSet.Attach(entity);
+            dbSet.Remove(entity);
+        }
     }
 }

@@ -45,40 +45,6 @@ namespace PingYourPackage.Domain.Services
             return userCtx;
         }
 
-        private IEnumerable<Role> GetUserRoles(Guid userKey)
-        {
-            var userInRoles = _userInRoleRepository
-                .FindBy(x => x.UserKey == userKey).ToList();
-
-            if (userInRoles != null && userInRoles.Count > 0)
-            {
-                var userRoleKeys = userInRoles
-                    .Select(x => x.RoleKey).ToArray();
-
-                var userRoles = _roleRepository
-                    .FindBy(x => userRoleKeys.Contains(x.Key));
-
-                return userRoles;
-            }
-
-            return Enumerable.Empty<Role>();
-        }
-
-        private bool isUserValid(User user, string password)
-        {
-            if (isPasswordValid(user, password))
-            {
-                return !user.IsLocked;
-            }
-
-            return false;
-        }
-
-        private bool isPasswordValid(User user, string password)
-        {
-            return string.Equals(_cryptoService.EncryptPassword(password, user.Salt), user.HashedPassword);
-        }
-
         public OperationResult<UserWithRoles> CreateUser(string username, string email, string password)
         {
             return CreateUser(username, email, password, roles: null);
@@ -125,37 +91,6 @@ namespace PingYourPackage.Domain.Services
             {
                 Entity = GetUserWithRoles(user)
             };
-        }
-
-        private UserWithRoles GetUserWithRoles(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void addUserToRole(User user, string roleName)
-        {
-            var role = _roleRepository.GetSingleByRoleName(roleName);
-
-            if (role == null)
-            {
-                var tempRole = new Role()
-                {
-                    Name = roleName
-                };
-
-                _roleRepository.Add(tempRole);
-                _roleRepository.Save();
-                role = tempRole;
-            }
-
-            var userInRole = new UserInRole()
-            {
-                RoleKey = role.Key,
-                UserKey = user.Key
-            };
-
-            _userInRoleRepository.Add(userInRole);
-            _userInRoleRepository.Save();
         }
 
         public UserWithRoles UpdateUser(Entities.User user, string username, string email)
@@ -208,9 +143,77 @@ namespace PingYourPackage.Domain.Services
             throw new NotImplementedException();
         }
 
-        public UserWithRoles GEtUser(string name)
+        public UserWithRoles GetUser(string name)
         {
             throw new NotImplementedException();
         }
+
+        // Private helpers
+
+        private IEnumerable<Role> GetUserRoles(Guid userKey)
+        {
+            var userInRoles = _userInRoleRepository
+                .FindBy(x => x.UserKey == userKey).ToList();
+
+            if (userInRoles != null && userInRoles.Count > 0)
+            {
+                var userRoleKeys = userInRoles
+                    .Select(x => x.RoleKey).ToArray();
+
+                var userRoles = _roleRepository
+                    .FindBy(x => userRoleKeys.Contains(x.Key));
+
+                return userRoles;
+            }
+
+            return Enumerable.Empty<Role>();
+        }
+
+        private bool isUserValid(User user, string password)
+        {
+            if (isPasswordValid(user, password))
+            {
+                return !user.IsLocked;
+            }
+
+            return false;
+        }
+
+        private bool isPasswordValid(User user, string password)
+        {
+            return string.Equals(_cryptoService.EncryptPassword(password, user.Salt), user.HashedPassword);
+        }
+
+        private UserWithRoles GetUserWithRoles(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void addUserToRole(User user, string roleName)
+        {
+            var role = _roleRepository.GetSingleByRoleName(roleName);
+
+            if (role == null)
+            {
+                var tempRole = new Role()
+                {
+                    Name = roleName
+                };
+
+                _roleRepository.Add(tempRole);
+                _roleRepository.Save();
+                role = tempRole;
+            }
+
+            var userInRole = new UserInRole()
+            {
+                RoleKey = role.Key,
+                UserKey = user.Key
+            };
+
+            _userInRoleRepository.Add(userInRole);
+            _userInRoleRepository.Save();
+        }
+
     }
 }

@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A2BCBB
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API.Model", "PingYourPackage.API.Model\PingYourPackage.API.Model.csproj", "{326B51DA-E980-4A65-A6E0-65355DAC3829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API.Test.Integration", "PingYourPackage.API.Test.Integration\PingYourPackage.API.Test.Integration.csproj", "{FB604283-E83E-4391-A4E7-5ECCF491B859}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,14 @@ Global
 		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A26C79F-1553-4790-B1CF-9AB11AB2ECB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326B51DA-E980-4A65-A6E0-65355DAC3829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326B51DA-E980-4A65-A6E0-65355DAC3829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326B51DA-E980-4A65-A6E0-65355DAC3829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326B51DA-E980-4A65-A6E0-65355DAC3829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB604283-E83E-4391-A4E7-5ECCF491B859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB604283-E83E-4391-A4E7-5ECCF491B859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB604283-E83E-4391-A4E7-5ECCF491B859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB604283-E83E-4391-A4E7-5ECCF491B859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

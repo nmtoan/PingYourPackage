@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using System.Net.Http;
+﻿using NUnit.Framework;
 using PingYourPackage.API.MessageHandler;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PingYourPackage.API.Test.MessageHandlers
 {
@@ -16,7 +12,7 @@ namespace PingYourPackage.API.Test.MessageHandlers
         [Test]
         public async Task Returns_Forbidden_If_Request_Is_Not_Over_HTTPS()
         {
-            // Arange
+            // Arrange
             var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:8080");
             var requireHttpsMessageHandler = new RequireHttpsMessageHandler();
             
@@ -30,7 +26,7 @@ namespace PingYourPackage.API.Test.MessageHandlers
         [Test]
         public async Task Returns_Delegated_StatusCode_When_Request_Is_Over_HTTPS()
         {
-            // Arange
+            // Arrange
             var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:8080");
             var requireHttpsMessageHandler=new RequireHttpsMessageHandler();
 

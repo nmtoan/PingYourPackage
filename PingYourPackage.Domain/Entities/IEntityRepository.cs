@@ -20,5 +20,7 @@ namespace PingYourPackage.Domain.Entities
         void Delete(T entity);
         void Edit(T entity);
         void Save();
+
+        void DeleteGraph(T entity);
     }
 }

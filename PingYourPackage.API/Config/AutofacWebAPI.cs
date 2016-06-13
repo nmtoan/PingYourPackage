@@ -37,7 +37,7 @@ namespace PingYourPackage.API.Config
             // Services
             builder.RegisterType<CryptoService>().As<ICryptoService>().InstancePerApiRequest();
             builder.RegisterType<MembershipService>().As<IMembershipService>().InstancePerApiRequest();
-            // register ShipmentService
+            builder.RegisterType<ShipmentService>().As<IShipmentService>().InstancePerApiRequest();
 
             return builder.Build();
         }

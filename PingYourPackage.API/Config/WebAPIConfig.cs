@@ -1,11 +1,13 @@
 ﻿using PingYourPackage.API.Formatting;
 using PingYourPackage.API.MessageHandler;
+using PingYourPackage.API.Model.RequestCommands;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using System.Web.Http.Validation;
 using System.Web.Http.Validation.Providers;
+using WebApiDoodle.Web.Filters;
 
 namespace PingYourPackage.API.Config
 {
@@ -16,6 +18,8 @@ namespace PingYourPackage.API.Config
         {
             // Message Handlers
             config.MessageHandlers.Add(new RequireHttpsMessageHandler());
+
+            config.MessageHandlers.Add(new PingYourPackageAuthHandler());
 
             // Formatters
             var jqueryFormatter = config.Formatters
@@ -30,12 +34,23 @@ namespace PingYourPackage.API.Config
                 formatter.RequiredMemberSelector = new SuppressedRequiredMemberSelector();
             }
 
+            // Filters
+            config.Filters.Add(new InvalidModelStateFilterAttribute());
+
             // Default Services
             config.Services.Replace(typeof(IContentNegotiator), 
                 new DefaultContentNegotiator(excludeMatchOnTypeOnly: true));
 
             config.Services.RemoveAll(typeof(ModelValidatorProvider), 
                 validator => !(validator is DataAnnotationsModelValidatorProvider));
+
+            // ParameterBindingRules
+
+            // Any complex type parameter which is Assignable From
+            // IRequestCommand will be bound from the URI
+            config.ParameterBindingRules.Insert(0,
+                descriptor =>
+                    typeof(IRequestCommand).IsAssignableFrom(descriptor.ParameterType) ? new FromUriAttribute().GetBinding(descriptor) : null);
         }
     }
 }

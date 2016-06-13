@@ -26,6 +26,6 @@ namespace PingYourPackage.Domain.Services
 
         PaginatedList<UserWithRoles> GetUsers(int pageIndex, int pageSize);
         UserWithRoles GetUser(Guid key);
-        UserWithRoles GEtUser(string name);
+        UserWithRoles GetUser(string name);
     }
 }
